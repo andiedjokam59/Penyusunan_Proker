@@ -133,6 +133,63 @@
             color: #0f172a;
         }
 
+        /* RESPONSIVE TRANSFORMATIONS FOR MOBILE (HP) */
+        @media (max-width: 767px) {
+            .responsive-table thead {
+                display: none;
+            }
+            
+            .responsive-table tr {
+                display: flex;
+                flex-direction: column;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 12px;
+                margin-bottom: 12px;
+                box-shadow: 2px 2px 6px var(--shadow-dark);
+            }
+
+            .responsive-table td {
+                display: flex;
+                flex-direction: column;
+                border: none !important;
+                padding: 4px 0 !important;
+                width: 100% !important;
+            }
+
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                font-size: 10px;
+                text-transform: uppercase;
+                color: #64748b;
+                margin-bottom: 4px;
+            }
+
+            .responsive-table td.row-number-td::before {
+                display: none;
+            }
+
+            .responsive-table td.row-number-td {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #f1f5f9 !important;
+                padding-bottom: 8px !important;
+                margin-bottom: 8px;
+                font-weight: 700;
+                color: #0f172a;
+            }
+
+            .responsive-table td.action-td {
+                align-items: flex-end;
+                border-top: 1px solid #f1f5f9 !important;
+                padding-top: 8px !important;
+                margin-top: 4px;
+            }
+        }
+
         /* FULLSCREEN MODE BERSIH TOTAL UNTUK PRESENTASI PROYEKTOR */
         :fullscreen #mainNavbar,
         :-webkit-full-screen #mainNavbar,
@@ -221,31 +278,33 @@
     </div>
 
     <!-- HEADER TITLE BANNER -->
-    <div class="header-banner text-center pt-6 pb-2 no-print">
-        <h1 class="font-luxury font-bold text-2xl md:text-3xl tracking-widest uppercase text-slate-800">PROGRAM KERJA</h1>
-        <h2 class="font-luxury font-semibold text-lg md:text-xl tracking-wider text-slate-500">KMM DAERAH TAWANGMANGU</h2>
+    <div class="header-banner text-center pt-4 md:pt-6 pb-2 no-print px-4">
+        <h1 class="font-luxury font-bold text-xl sm:text-2xl md:text-3xl tracking-widest uppercase text-slate-800">PROGRAM KERJA</h1>
+        <h2 class="font-luxury font-semibold text-base sm:text-lg md:text-xl tracking-wider text-slate-500">KMM DAERAH TAWANGMANGU</h2>
     </div>
 
     <!-- NAVBAR HEADER -->
-    <header id="mainNavbar" class="sticky top-4 z-40 no-print max-w-7xl w-full mx-auto px-4 md:px-6 my-3">
-        <div class="neu-card px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-3.5">
-                <div class="w-12 h-12 neu-card-sm flex items-center justify-center overflow-hidden p-1">
-                    <img src="Logo remaja daerah.png" alt="Logo KMM" class="w-full h-full object-contain">
-                </div>
-                <div>
-                    <h3 class="font-luxury font-bold text-base tracking-wider text-slate-800">KMM TAWANGMANGU</h3>
-                    <p class="text-[11px] font-medium text-slate-500">Penyusunan Program Kerja & Anggaran</p>
+    <header id="mainNavbar" class="sticky top-2 md:top-4 z-40 no-print max-w-7xl w-full mx-auto px-3 md:px-6 my-2 md:my-3">
+        <div class="neu-card px-4 md:px-6 py-3 md:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4">
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-start">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 md:w-12 md:h-12 neu-card-sm flex items-center justify-center overflow-hidden p-1 flex-shrink-0">
+                        <img src="Logo remaja daerah.png" alt="Logo KMM" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="font-luxury font-bold text-sm md:text-base tracking-wider text-slate-800">KMM TAWANGMANGU</h3>
+                        <p class="text-[10px] md:text-[11px] font-medium text-slate-500">Penyusunan Program Kerja & Anggaran</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Navigation Tabs -->
-            <div class="flex p-1.5 neu-input rounded-xl gap-2">
-                <button id="tabInputBtn" onclick="switchTab('input')" class="px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn-primary">
+            <div class="flex p-1 neu-input rounded-xl gap-1.5 w-full sm:w-auto">
+                <button id="tabInputBtn" onclick="switchTab('input')" class="flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn-primary">
                     <i class="fa-solid fa-pen-nib"></i>
                     <span>Form Pengisian</span>
                 </button>
-                <button id="tabAdminBtn" onclick="switchTab('admin')" class="px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn">
+                <button id="tabAdminBtn" onclick="switchTab('admin')" class="flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn">
                     <i class="fa-solid fa-desktop"></i>
                     <span>Rekap & Presentasi</span>
                 </button>
@@ -254,15 +313,15 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 relative">
+    <main class="flex-1 max-w-7xl w-full mx-auto p-3 md:p-6 relative">
 
         <!-- TAB 1: FORM PENGURUS -->
-        <section id="tabInput" class="space-y-6">
-            <div class="neu-card p-6 md:p-8 space-y-6">
+        <section id="tabInput" class="space-y-4 md:space-y-6">
+            <div class="neu-card p-4 sm:p-6 md:p-8 space-y-4 md:space-y-6">
                 
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-4 gap-4">
                     <div>
-                        <h2 class="text-2xl font-bold font-luxury text-slate-800">Form Pengisian Program Kerja</h2>
+                        <h2 class="text-xl md:text-2xl font-bold font-luxury text-slate-800">Form Pengisian Program Kerja</h2>
                         <p class="text-xs text-slate-500 mt-1">Lengkapi atau pilih bidang yang ada untuk melakukan perubahan data.</p>
                     </div>
 
@@ -282,11 +341,11 @@
                     </div>
                 </div>
 
-                <form id="prokerForm" onsubmit="event.preventDefault();" class="space-y-6">
+                <form id="prokerForm" onsubmit="event.preventDefault();" class="space-y-4 md:space-y-6">
                     <input type="hidden" id="inputId" value="">
 
                     <!-- Informasi Header -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 neu-card-sm p-5">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 neu-card-sm p-4 md:p-5">
                         <div>
                             <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">Nama Bidang *</label>
                             <input type="text" id="inputBidang" required onblur="autoCapitalize(this)" placeholder="Contoh: Ketua dan wakil" class="w-full px-3.5 py-2.5 neu-input rounded-lg outline-none text-xs font-semibold">
@@ -303,39 +362,41 @@
 
                     <!-- Tabel Input -->
                     <div class="space-y-3">
-                        <div class="flex justify-between items-center">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                             <h3 class="font-bold font-luxury text-base text-slate-800">Daftar Rencana Kegiatan</h3>
-                            <button type="button" onclick="addTableRow()" class="neu-btn text-xs font-bold px-3.5 py-2 rounded-lg flex items-center space-x-1.5">
+                            <button type="button" onclick="addTableRow()" class="w-full sm:w-auto neu-btn text-xs font-bold px-3.5 py-2 rounded-lg flex items-center justify-center space-x-1.5">
                                 <i class="fa-solid fa-plus text-slate-700"></i>
                                 <span>Tambah Baris Kegiatan</span>
                             </button>
                         </div>
 
-                        <div class="overflow-x-auto neu-card-sm p-2">
-                            <table class="w-full text-xs text-left border-collapse" id="inputTable">
-                                <thead>
-                                    <tr class="bg-slate-100 text-slate-700 text-[11px] uppercase font-bold tracking-wider text-center">
-                                        <th class="p-3 border-r border-slate-200 w-10">No</th>
-                                        <th class="p-3 border-r border-slate-200 w-60">Rencana Kegiatan</th>
-                                        <th class="p-3 border-r border-slate-200 w-44">Sasaran Kegiatan</th>
-                                        <th class="p-3 border-r border-slate-200 w-52">Tujuan</th>
-                                        <th class="p-3 border-r border-slate-200 w-28">Rencana Waktu</th>
-                                        <th class="p-3 border-r border-slate-200 w-40">Penanggung Jawab</th>
-                                        <th class="p-3 border-r border-slate-200 w-36">Anggaran (Rp)</th>
-                                        <th class="p-3 border-r border-slate-200 w-28">Asal Biaya</th>
-                                        <th class="p-3 w-10">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="inputTableBody" class="divide-y divide-slate-100 bg-white">
-                                    <!-- Baris diisi via JS -->
-                                </tbody>
-                            </table>
+                        <div class="neu-card-sm p-2 md:p-3 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-xs text-left border-collapse responsive-table" id="inputTable">
+                                    <thead>
+                                        <tr class="bg-slate-100 text-slate-700 text-[11px] uppercase font-bold tracking-wider text-center">
+                                            <th class="p-3 border-r border-slate-200 w-10">No</th>
+                                            <th class="p-3 border-r border-slate-200 w-60">Rencana Kegiatan</th>
+                                            <th class="p-3 border-r border-slate-200 w-44">Sasaran Kegiatan</th>
+                                            <th class="p-3 border-r border-slate-200 w-52">Tujuan</th>
+                                            <th class="p-3 border-r border-slate-200 w-28">Rencana Waktu</th>
+                                            <th class="p-3 border-r border-slate-200 w-40">Penanggung Jawab</th>
+                                            <th class="p-3 border-r border-slate-200 w-36">Anggaran (Rp)</th>
+                                            <th class="p-3 border-r border-slate-200 w-28">Asal Biaya</th>
+                                            <th class="p-3 w-10">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inputTableBody" class="divide-y divide-slate-100 bg-white">
+                                        <!-- Baris diisi via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Tombol Aksi -->
                     <div class="flex justify-end pt-2">
-                        <button type="button" onclick="submitDataToAdmin()" class="px-8 py-3.5 neu-btn-primary text-xs font-bold rounded-xl flex items-center space-x-2">
+                        <button type="button" onclick="submitDataToAdmin()" class="w-full sm:w-auto px-8 py-3.5 neu-btn-primary text-xs font-bold rounded-xl flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-paper-plane"></i>
                             <span>Simpan Dokumen</span>
                         </button>
@@ -345,12 +406,12 @@
         </section>
 
         <!-- TAB 2: MODE PRESENTASI PROYEKTOR -->
-        <section id="tabAdmin" class="hidden space-y-6">
+        <section id="tabAdmin" class="hidden space-y-4 md:space-y-6">
             <!-- Control Bar Admin -->
-            <div id="adminControlBar" class="neu-card px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 no-print">
+            <div id="adminControlBar" class="neu-card px-4 md:px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 no-print">
                 
                 <!-- Pilih Bidang -->
-                <div class="flex items-center space-x-3 w-full md:w-auto">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full md:w-auto">
                     <label class="text-xs font-bold uppercase tracking-wider text-slate-700 whitespace-nowrap">Pilih Bidang Dipresentasikan:</label>
                     <select id="selectBidangAdmin" onchange="renderPresentationDoc()" class="neu-input font-semibold text-xs rounded-xl px-3.5 py-2.5 outline-none w-full md:w-72 cursor-pointer">
                         <!-- Populated dynamically -->
@@ -358,16 +419,16 @@
                 </div>
 
                 <!-- Tombol Aksi Dokumentasi -->
-                <div class="flex items-center gap-3 w-full md:w-auto justify-end">
-                    <button onclick="toggleFullscreen()" class="neu-btn text-xs font-bold px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                <div class="flex flex-wrap items-center gap-2 md:gap-3 w-full md:w-auto justify-end">
+                    <button onclick="toggleFullscreen()" class="flex-1 sm:flex-none neu-btn text-xs font-bold px-3.5 md:px-4 py-2.5 rounded-xl flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-expand text-slate-700"></i>
                         <span>Layar Penuh</span>
                     </button>
-                    <button onclick="exportToWord()" class="neu-btn text-xs font-bold px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                    <button onclick="exportToWord()" class="flex-1 sm:flex-none neu-btn text-xs font-bold px-3.5 md:px-4 py-2.5 rounded-xl flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-file-word text-blue-600"></i>
                         <span>Ekspor Word</span>
                     </button>
-                    <button onclick="exportPdfBuku()" class="neu-btn-primary text-xs font-bold px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                    <button onclick="exportPdfBuku()" class="w-full sm:w-auto neu-btn-primary text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-print"></i>
                         <span>Cetak F4 / PDF</span>
                     </button>
@@ -375,51 +436,51 @@
             </div>
 
             <!-- TAMPILAN DOKUMEN PRESENTASI PROYEKTOR -->
-            <div id="presentationCanvasContainer" class="transition-all duration-300">
-                <div id="presentationCanvas" class="neu-card p-8 md:p-12 font-serif-doc border border-slate-200">
+            <div id="presentationCanvasContainer" class="transition-all duration-300 overflow-x-auto pb-4">
+                <div id="presentationCanvas" class="neu-card p-4 sm:p-8 md:p-12 font-serif-doc border border-slate-200 min-w-[750px] md:min-w-0">
                     
                     <!-- HEADER DOKUMEN -->
                     <div class="flex items-center pb-4 mb-6 doc-border-double">
-                        <div class="w-28 h-28 flex-shrink-0 flex items-center justify-center p-1 border-r border-dashed border-slate-300 pr-6">
-                            <div class="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center neu-card-sm p-2">
+                        <div class="w-20 h-20 md:w-28 md:h-28 flex-shrink-0 flex items-center justify-center p-1 border-r border-dashed border-slate-300 pr-3 md:pr-6">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden flex items-center justify-center neu-card-sm p-2">
                                 <img src="Logo remaja daerah.png" alt="Logo KMM Tawangmangu" class="w-full h-full object-contain">
                             </div>
                         </div>
                         
-                        <div class="flex-1 text-center font-bold px-4">
-                            <h2 class="text-xl md:text-2xl tracking-wider uppercase font-luxury text-slate-900">PROGRAM KERJA KMM DAERAH TAWANGMANGU</h2>
-                            <h2 class="text-xl md:text-2xl tracking-wide mt-1 text-slate-900">TAHUN <span id="presTahunTitle" contenteditable="true" onblur="saveInlineEdit()">2026</span></h2>
-                            <div class="text-lg md:text-xl font-normal mt-1.5 text-slate-700">
+                        <div class="flex-1 text-center font-bold px-2 md:px-4">
+                            <h2 class="text-base sm:text-xl md:text-2xl tracking-wider uppercase font-luxury text-slate-900">PROGRAM KERJA KMM DAERAH TAWANGMANGU</h2>
+                            <h2 class="text-base sm:text-xl md:text-2xl tracking-wide mt-1 text-slate-900">TAHUN <span id="presTahunTitle" contenteditable="true" onblur="saveInlineEdit()">2026</span></h2>
+                            <div class="text-sm sm:text-lg md:text-xl font-normal mt-1.5 text-slate-700">
                                 ( <span id="presBidangTitle" contenteditable="true" onblur="saveInlineEdit()" class="font-bold underline text-slate-900">...</span> )
                             </div>
                         </div>
                     </div>
 
                     <!-- SUB HEADER & NAMA PENGURUS -->
-                    <div class="mt-8 mb-6">
-                        <h3 class="text-center font-bold text-lg md:text-xl uppercase tracking-widest mb-6 font-luxury text-slate-800">
+                    <div class="mt-6 md:mt-8 mb-6">
+                        <h3 class="text-center font-bold text-base md:text-xl uppercase tracking-widest mb-4 md:mb-6 font-luxury text-slate-800">
                             RENCANA PELAKSANAAN DAN ANGGARAN
                         </h3>
-                        <div class="text-md font-semibold flex items-center text-slate-800">
-                            <span class="w-36 text-slate-600">Nama Pengurus</span>
+                        <div class="text-sm md:text-md font-semibold flex items-center text-slate-800">
+                            <span class="w-32 md:w-36 text-slate-600">Nama Pengurus</span>
                             <span>: &nbsp;</span>
-                            <span id="presNamaPengurus" contenteditable="true" onblur="saveInlineEdit()" class="border-b border-dotted border-slate-800 min-w-[220px] inline-block font-bold px-2 py-0.5 text-slate-900">...</span>
+                            <span id="presNamaPengurus" contenteditable="true" onblur="saveInlineEdit()" class="border-b border-dotted border-slate-800 min-w-[180px] md:min-w-[220px] inline-block font-bold px-2 py-0.5 text-slate-900">...</span>
                         </div>
                     </div>
 
                     <!-- TABEL KEGIATAN & ANGGARAN -->
                     <div class="overflow-x-auto mt-6">
-                        <table class="w-full border-2 border-slate-900 text-sm md:text-base border-collapse" id="presTable">
+                        <table class="w-full border-2 border-slate-900 text-xs sm:text-sm md:text-base border-collapse" id="presTable">
                             <thead>
                                 <tr class="border-b-2 border-slate-900 bg-slate-100 font-bold text-center text-slate-900">
-                                    <th class="border-r border-slate-900 p-2.5 w-10">NO</th>
-                                    <th class="border-r border-slate-900 p-2.5 w-[28%]">RENCANA KEGIATAN</th>
-                                    <th class="border-r border-slate-900 p-2.5 w-[18%]">SASARAN KEGIATAN</th>
-                                    <th class="border-r border-slate-900 p-2.5 w-[24%]">TUJUAN</th>
-                                    <th class="border-r border-slate-900 p-2.5 w-28">RENCANA WAKTU</th>
-                                    <th class="border-r border-slate-900 p-2.5">PENANGGUNG JAWAB</th>
-                                    <th class="border-r border-slate-900 p-2.5 w-32">ANGGARAN (Rp)</th>
-                                    <th class="border-slate-900 p-2.5 w-28">ASAL BIAYA</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-10">NO</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-[28%]">RENCANA KEGIATAN</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-[18%]">SASARAN KEGIATAN</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-[24%]">TUJUAN</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-24 md:w-28">RENCANA WAKTU</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5">PENANGGUNG JAWAB</th>
+                                    <th class="border-r border-slate-900 p-2 md:p-2.5 w-28 md:w-32">ANGGARAN (Rp)</th>
+                                    <th class="border-slate-900 p-2 md:p-2.5 w-24 md:w-28">ASAL BIAYA</th>
                                 </tr>
                             </thead>
                             <tbody id="presTableBody">
@@ -509,6 +570,8 @@
         }
 
         function initTableResizers() {
+            if (window.innerWidth < 768) return;
+
             try {
                 $("#inputTable").colResizable({ disable: true });
                 $("#inputTable").colResizable({
@@ -582,6 +645,10 @@
             setTimeout(initTableResizers, 300);
         });
 
+        window.addEventListener('resize', () => {
+            setTimeout(initTableResizers, 200);
+        });
+
         function switchTab(tabName) {
             const tabInput = document.getElementById("tabInput");
             const tabAdmin = document.getElementById("tabAdmin");
@@ -591,14 +658,14 @@
             if (tabName === 'input') {
                 tabInput.classList.remove("hidden");
                 tabAdmin.classList.add("hidden");
-                btnInput.className = "px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn-primary";
-                btnAdmin.className = "px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn";
+                btnInput.className = "flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn-primary";
+                btnAdmin.className = "flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn";
                 setTimeout(initTableResizers, 100);
             } else {
                 tabInput.classList.add("hidden");
                 tabAdmin.classList.remove("hidden");
-                btnAdmin.className = "px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn-primary";
-                btnInput.className = "px-5 py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center space-x-2 neu-btn";
+                btnAdmin.className = "flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn-primary";
+                btnInput.className = "flex-1 sm:flex-none px-4 md:px-5 py-2 md:py-2.5 text-xs font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 neu-btn";
                 
                 updateDropdowns();
                 renderPresentationDoc();
@@ -606,6 +673,7 @@
             }
         }
 
+        /* OPTIMASI FAST LOADING & CACHE-FIRST */
         async function loadMasterData(forceRefresh = false) {
             const cachedData = localStorage.getItem("kmm_proker_cache");
             if (cachedData) {
@@ -616,12 +684,18 @@
                 } catch (e) { console.error("Error cache", e); }
             }
 
-            if (!cachedData || forceRefresh) {
-                showLoading("Memuat data terbaru...");
+            // Jika belum ada cache sama sekali, tampilkan loading cepat
+            if (!cachedData) {
+                showLoading("Memuat data...");
             }
 
+            // Fetch background dengan timeout 3 detik agar aplikasi tidak pernah macet/lambat
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 3000);
+
             try {
-                const response = await fetch(SCRIPT_URL);
+                const response = await fetch(SCRIPT_URL, { signal: controller.signal });
+                clearTimeout(timeoutId);
                 if (response.ok) {
                     const freshData = await response.json();
                     masterData = freshData;
@@ -630,7 +704,7 @@
                     renderPresentationDoc();
                 }
             } catch (error) {
-                console.error("Gagal mengambil data:", error);
+                console.log("Pengambilan data latar belakang selesai/ditutup cepat.");
             } finally {
                 hideLoading();
             }
@@ -716,16 +790,19 @@
             const tr = document.createElement("tr");
             tr.className = "hover:bg-slate-50 transition";
             tr.innerHTML = `
-                <td class="p-2.5 text-center font-bold text-slate-400 row-number border-r border-slate-200">${rowCount}</td>
-                <td class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" class="input-kegiatan table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.nama || ""}</textarea></td>
-                <td class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" class="input-sasaran table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.sasaran || ""}</textarea></td>
-                <td class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" class="input-tujuan table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.tujuan || ""}</textarea></td>
-                <td class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.waktu || ""}" class="input-waktu w-full p-1.5 neu-input rounded text-xs outline-none"></td>
-                <td class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.pj || ""}" class="input-pj w-full p-1.5 neu-input rounded text-xs outline-none"></td>
-                <td class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" rows="1" onblur="autoCapitalize(this)" class="input-anggaran table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.anggaran || ""}</textarea></td>
-                <td class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.asalBiaya || ""}" class="input-asal w-full p-1.5 neu-input rounded text-xs outline-none"></td>
-                <td class="p-1 text-center">
-                    <button type="button" onclick="removeRow(this)" class="neu-btn p-1.5 rounded-lg text-rose-600 hover:text-rose-800 transition"><i class="fa-solid fa-trash-can"></i></button>
+                <td class="p-2.5 text-center font-bold text-slate-700 row-number-td border-r border-slate-200">
+                    <span class="md:hidden">Kegiatan #${rowCount}</span>
+                    <span class="row-number md:inline-block hidden">${rowCount}</span>
+                </td>
+                <td data-label="Rencana Kegiatan" class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" placeholder="Masukkan rencana kegiatan..." class="input-kegiatan table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.nama || ""}</textarea></td>
+                <td data-label="Sasaran Kegiatan" class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" placeholder="Target sasaran..." class="input-sasaran table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.sasaran || ""}</textarea></td>
+                <td data-label="Tujuan" class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" onblur="autoCapitalize(this)" rows="1" placeholder="Tujuan kegiatan..." class="input-tujuan table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.tujuan || ""}</textarea></td>
+                <td data-label="Rencana Waktu" class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.waktu || ""}" placeholder="Waktu pelaksanaan" class="input-waktu w-full p-1.5 neu-input rounded text-xs outline-none"></td>
+                <td data-label="Penanggung Jawab" class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.pj || ""}" placeholder="PJ Kegiatan" class="input-pj w-full p-1.5 neu-input rounded text-xs outline-none"></td>
+                <td data-label="Anggaran (Rp)" class="p-1 border-r border-slate-200"><textarea oninput="autoResizeTextarea(this)" rows="1" onblur="autoCapitalize(this)" placeholder="Estimasi biaya" class="input-anggaran table-textarea p-1.5 neu-input rounded text-xs outline-none">${k.anggaran || ""}</textarea></td>
+                <td data-label="Asal Biaya" class="p-1 border-r border-slate-200"><input type="text" onblur="autoCapitalize(this)" value="${k.asalBiaya || ""}" placeholder="Sumber dana" class="input-asal w-full p-1.5 neu-input rounded text-xs outline-none"></td>
+                <td class="p-1 text-center action-td">
+                    <button type="button" onclick="removeRow(this)" class="neu-btn px-3 py-1.5 md:p-1.5 rounded-lg text-rose-600 hover:text-rose-800 transition flex items-center gap-1"><i class="fa-solid fa-trash-can"></i><span class="md:hidden text-xs">Hapus</span></button>
                 </td>
             `;
             tbody.appendChild(tr);
@@ -747,7 +824,10 @@
         function renumberTable() {
             const rows = document.querySelectorAll("#inputTableBody tr");
             rows.forEach((row, index) => {
-                row.querySelector(".row-number").textContent = index + 1;
+                const numEl = row.querySelector(".row-number");
+                if (numEl) numEl.textContent = index + 1;
+                const headerNum = row.querySelector(".row-number-td span:first-child");
+                if (headerNum && window.innerWidth < 768) headerNum.textContent = `Kegiatan #${index + 1}`;
             });
         }
 
